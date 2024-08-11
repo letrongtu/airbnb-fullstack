@@ -71,7 +71,7 @@ const UserMenu: React.FC<NavbarProps> = ({
                 />
                 <MenuItem
                   onClick={() => {}}
-                  label="My favourits"
+                  label="My favourites"
                 />
                 <MenuItem
                   onClick={() => {}}
