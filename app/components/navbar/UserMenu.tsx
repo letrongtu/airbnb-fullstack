@@ -9,6 +9,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useRentModal from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -17,6 +18,7 @@ interface NavbarProps {
 const UserMenu: React.FC<NavbarProps> = ({
   currentUser,
 }) => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
@@ -66,7 +68,9 @@ const UserMenu: React.FC<NavbarProps> = ({
             {currentUser ? (
               <>
                 <MenuItem
-                  onClick={() => {}}
+                  onClick={() =>
+                    router.push("/trips")
+                  }
                   label="My Trips"
                 />
                 <MenuItem
@@ -74,7 +78,9 @@ const UserMenu: React.FC<NavbarProps> = ({
                   label="My favourites"
                 />
                 <MenuItem
-                  onClick={() => {}}
+                  onClick={() =>
+                    router.push("/reservations")
+                  }
                   label="My reservations"
                 />
                 <MenuItem
