@@ -25,14 +25,12 @@ export async function DELETE(
     throw new Error("Invalid ID");
   }
 
-  const listing = await prisma.listing.deleteMany(
-    {
-      where: {
-        id: listingId,
-        userId: currentUser.id,
-      },
-    }
-  );
+  const listing = await prisma.listing.delete({
+    where: {
+      id: listingId,
+      userId: currentUser.id,
+    },
+  });
 
   return NextResponse.json(listing);
 }
